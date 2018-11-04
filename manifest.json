@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "micro-instagram",
+  "version": "1.0",
+  "icons": {
+    "48": "icons/instagram.svg"
+  },
+  "permissions": ["activeTab"],
+  "browser_action": {
+    "default_icon": "icons/instagram.svg",
+    "default_title": "Micro",
+    "default_popup": "popup/popup.html"
+  }
+}
