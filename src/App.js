@@ -1,7 +1,13 @@
 import React from "react";
 
+import Header from "./features/header/components/Header";
+
 function App() {
-  return <div className="App">icon-design-toolkit</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default App;
