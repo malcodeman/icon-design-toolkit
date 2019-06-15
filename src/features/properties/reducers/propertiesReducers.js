@@ -1,4 +1,8 @@
-import { SET_WIDTH, SET_HEIGHT } from "../actions/propertiesActionTypes";
+import {
+  SET_WIDTH,
+  SET_HEIGHT,
+  SET_COLOR
+} from "../actions/propertiesActionTypes";
 
 const initialState = {
   color: "#000",
@@ -21,6 +25,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         height: action.payload
+      };
+    case SET_COLOR:
+      return {
+        ...state,
+        color: action.payload
       };
     default:
       return state;
