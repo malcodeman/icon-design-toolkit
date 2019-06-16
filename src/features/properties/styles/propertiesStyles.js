@@ -1,58 +1,62 @@
 import styled from "styled-components";
 
 export const Panel = styled.div`
-  padding: 8px;
-  border-bottom: 2px solid ${props => props.theme.borderColor};
+  border-bottom: ${props =>
+    `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
 `;
 
-export const PanelTitle = styled.h2`
-  line-height: 32px;
-  padding-left: 8px;
-  font-size: 0.6rem;
+export const PanelTitle = styled.div`
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: ${props =>
+    `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
+`;
+
+export const PanelTitleText = styled.h2`
+  font-size: 0.8rem;
   font-weight: normal;
-  letter-spacing: 1px;
-  text-transform: uppercase;
   color: ${props => props.theme.primary};
+`;
+
+export const PanelBody = styled.div`
+  padding: 0 0 10px 0;
+  :not(:first-child) {
+    padding: 10px 0;
+  }
+`;
+
+export const Control = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  padding: 0 10px;
+  :not(:last-child) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const ControlLabel = styled.label`
   font-size: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 16px;
-  height: 16px;
-  cursor: ew-resize;
-  color: ${props => props.theme.secondary};
-`;
-
-export const Control = styled.div`
-  display: flex;
-  align-items: center;
-  border: 1px solid transparent;
-  padding: 8px;
-  border-radius: ${props => props.theme.borderRadius};
-  &:hover {
-    border-color: ${props => props.theme.borderColor};
-  }
-  &:focus-within {
-    border-color: ${props => props.theme.brand};
-    box-shadow: inset 0 0 0 1px ${props => props.theme.brand};
-  }
-  &:focus-within ${ControlLabel} {
-    color: ${props => props.theme.brand};
-  }
+  color: ${props => props.theme.primary};
 `;
 
 export const ControlInput = styled.input`
   font-size: 0.8rem;
-  background-color: transparent;
-  border: 0;
-  padding: 0;
+  background-color: #fff;
+  padding: 4px;
   width: 100%;
-  height: 100%;
   cursor: default;
+  height: 24px;
+  font-family: "Roboto", sans-serif;
+  color: ${props => props.theme.primary};
+  border-radius: ${props => props.theme.borderRadius};
+  border: ${props =>
+    `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
   &:focus {
     color: ${props => props.theme.brand};
+    border-color: ${props => props.theme.brand};
   }
 `;

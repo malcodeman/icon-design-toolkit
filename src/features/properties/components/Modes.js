@@ -9,12 +9,9 @@ const StyledModes = styled.header`
 
 const StyledNavLink = styled(NavLink)`
   font-size: 0.8rem;
-  padding: 8px;
+  padding: 10px;
   line-height: 40px;
   color: ${props => props.theme.secondary};
-  &:first-child {
-    padding-left: 16px;
-  }
   &:hover {
     color: ${props => props.theme.primary};
   }

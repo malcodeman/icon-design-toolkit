@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const CodeMode = styled.div`
-  padding: 0 16px;
+  padding: 0 10px;
 `;
 
 const PreformattedText = styled.pre`
@@ -21,8 +21,7 @@ function Code(props) {
     <CodeMode>
       <PreformattedText>
         <StyledCode>
-          {`
-<svg
+          {`<svg
   xmlns="http://www.w3.org/2000/svg"
   width="${props.width}"
   height="${props.height}"

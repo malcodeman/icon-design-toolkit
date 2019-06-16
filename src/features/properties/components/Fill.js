@@ -5,18 +5,26 @@ import styled from "styled-components";
 import {
   Panel,
   PanelTitle,
+  PanelTitleText,
+  PanelBody,
   Control,
   ControlInput
 } from "../styles/propertiesStyles";
 
-const Wrapper = styled.div``;
+const ColorWrapper = styled.div`
+  width: 36px;
+  height: 24px;
+  padding: 4px;
+  border-radius: ${props => props.theme.borderRadius};
+  border: ${props =>
+    `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
+`;
 
 const Color = styled.div`
-  min-width: 16px;
-  height: 16px;
-  margin-right: 8px;
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.2s ease;
   background-color: ${props => props.color};
-  border-radius: ${props => props.theme.borderRadius};
 `;
 
 function Fill(props) {
@@ -30,10 +38,14 @@ function Fill(props) {
 
   return (
     <Panel>
-      <PanelTitle>Fill</PanelTitle>
-      <Wrapper>
+      <PanelTitle>
+        <PanelTitleText>Fill</PanelTitleText>
+      </PanelTitle>
+      <PanelBody>
         <Control>
-          <Color color={props.color} />
+          <ColorWrapper>
+            <Color color={props.color} />
+          </ColorWrapper>
           <ControlInput
             type="text"
             value={props.color}
@@ -43,7 +55,7 @@ function Fill(props) {
             }
           />
         </Control>
-      </Wrapper>
+      </PanelBody>
     </Panel>
   );
 }

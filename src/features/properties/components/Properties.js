@@ -19,11 +19,12 @@ const PropertiesPanel = styled.div`
   right: 0;
   bottom: 0;
   display: flex;
-  width: 246px;
+  width: 222px;
   flex-direction: column;
   overflow-y: auto;
-  border-left: 2px solid ${props => props.theme.borderColor};
   background-color: ${props => props.theme.backgroundPrimary};
+  border-left: ${props =>
+    `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
 `;
 
 function Properties(props) {

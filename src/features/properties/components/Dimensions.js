@@ -1,19 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
 
 import {
   Panel,
+  PanelBody,
   Control,
   ControlLabel,
   ControlInput
 } from "../styles/propertiesStyles";
-
-const Controls = styled.div`
-  display: grid;
-  grid-gap: 16px;
-  grid-template-columns: 1fr 1fr;
-`;
 
 function Dimensions(props) {
   function handleOnFocus(e) {
@@ -28,9 +22,9 @@ function Dimensions(props) {
 
   return (
     <Panel>
-      <Controls>
+      <PanelBody>
         <Control>
-          <ControlLabel>W</ControlLabel>
+          <ControlLabel>Width</ControlLabel>
           <ControlInput
             type="text"
             value={props.width}
@@ -41,7 +35,7 @@ function Dimensions(props) {
           />
         </Control>
         <Control>
-          <ControlLabel>H</ControlLabel>
+          <ControlLabel>Height</ControlLabel>
           <ControlInput
             type="text"
             value={props.height}
@@ -51,7 +45,7 @@ function Dimensions(props) {
             }
           />
         </Control>
-      </Controls>
+      </PanelBody>
     </Panel>
   );
 }
