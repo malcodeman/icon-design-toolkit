@@ -1,14 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { Route } from "react-router-dom";
 
 import {
   setWidth,
   setHeight,
   setColor
 } from "../actions/propertiesActionCreators";
+import Modes from "./Modes";
 import Dimensions from "./Dimensions";
 import Fill from "./Fill";
+import Code from "./Code";
 
 const PropertiesPanel = styled.div`
   position: fixed;
@@ -23,15 +26,31 @@ const PropertiesPanel = styled.div`
 `;
 
 function Properties(props) {
+  function renderDesignMode() {
+    return (
+      <>
+        <Dimensions
+          width={props.width}
+          height={props.height}
+          setWidth={props.setWidth}
+          setHeight={props.setHeight}
+        />
+        <Fill color={props.color} setColor={props.setColor} />
+      </>
+    );
+  }
+
+  function renderCodeMode() {
+    return (
+      <Code width={props.width} height={props.height} color={props.color} />
+    );
+  }
+
   return (
     <PropertiesPanel>
-      <Dimensions
-        width={props.width}
-        height={props.height}
-        setWidth={props.setWidth}
-        setHeight={props.setHeight}
-      />
-      <Fill color={props.color} setColor={props.setColor} />
+      <Modes />
+      <Route exact path="/" render={() => renderDesignMode()} />
+      <Route path="/code" render={() => renderCodeMode()} />
     </PropertiesPanel>
   );
 }
