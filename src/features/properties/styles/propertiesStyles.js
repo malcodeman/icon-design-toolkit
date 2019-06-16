@@ -5,26 +5,12 @@ export const Panel = styled.div`
     `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
 `;
 
-export const PanelTitle = styled.div`
-  height: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: ${props =>
-    `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
-`;
-
-export const PanelTitleText = styled.h2`
-  font-size: 0.8rem;
-  font-weight: normal;
-  color: ${props => props.theme.primary};
-`;
-
 export const PanelBody = styled.div`
   padding: 0 0 10px 0;
   :not(:first-child) {
     padding: 10px 0;
+    border-top: ${props =>
+      `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
   }
 `;
 

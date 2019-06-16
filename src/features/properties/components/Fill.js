@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import {
   Panel,
-  PanelTitle,
-  PanelTitleText,
   PanelBody,
   Control,
   ControlInput
 } from "../styles/propertiesStyles";
+import PanelTitle from "./PanelTitle";
 
 const ColorWrapper = styled.div`
   width: 36px;
@@ -28,6 +27,8 @@ const Color = styled.div`
 `;
 
 function Fill(props) {
+  const [expanded, setExpanded] = useState(true);
+
   function handleOnFocus(e) {
     e.target.select();
   }
@@ -38,24 +39,24 @@ function Fill(props) {
 
   return (
     <Panel>
-      <PanelTitle>
-        <PanelTitleText>Fill</PanelTitleText>
-      </PanelTitle>
-      <PanelBody>
-        <Control>
-          <ColorWrapper>
-            <Color color={props.color} />
-          </ColorWrapper>
-          <ControlInput
-            type="text"
-            value={props.color}
-            onFocus={handleOnFocus}
-            onChange={e =>
-              handleOnChange(e.currentTarget.value, props.setColor)
-            }
-          />
-        </Control>
-      </PanelBody>
+      <PanelTitle title="Fill" expanded={expanded} setExpanded={setExpanded} />
+      {expanded && (
+        <PanelBody>
+          <Control>
+            <ColorWrapper>
+              <Color color={props.color} />
+            </ColorWrapper>
+            <ControlInput
+              type="text"
+              value={props.color}
+              onFocus={handleOnFocus}
+              onChange={e =>
+                handleOnChange(e.currentTarget.value, props.setColor)
+              }
+            />
+          </Control>
+        </PanelBody>
+      )}
     </Panel>
   );
 }
