@@ -15,12 +15,13 @@ import Code from "./Code";
 
 const PropertiesPanel = styled.div`
   position: fixed;
-  top: 40px;
+  top: 0;
   right: 0;
   bottom: 0;
   display: flex;
   width: 246px;
   flex-direction: column;
+  overflow-y: auto;
   border-left: 2px solid ${props => props.theme.borderColor};
   background-color: ${props => props.theme.backgroundPrimary};
 `;

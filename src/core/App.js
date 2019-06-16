@@ -4,7 +4,6 @@ import { ThemeProvider } from "styled-components";
 
 import history from "./routing/history";
 import theme from "./styles/themes/default";
-import Header from "../features/header/components/Header";
 import Canvas from "../features/canvas/components/Canvas";
 import Properties from "../features/properties/components/Properties";
 
@@ -12,7 +11,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router history={history}>
-        <Header />
         <Canvas />
         <Properties />
       </Router>

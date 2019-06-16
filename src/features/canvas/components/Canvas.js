@@ -9,7 +9,8 @@ const StyledCanvas = styled.div`
   align-items: center;
   justify-content: center;
   width: calc(100% - 246px);
-  min-height: calc(100vh - 40px);
+  height: 100vh;
+  overflow-y: auto;
 `;
 
 function Canvas(props) {
