@@ -3,7 +3,8 @@ import {
   SET_HEIGHT,
   SET_COLOR,
   SET_OPACITY,
-  SET_ROTATION
+  SET_ROTATION,
+  SET_BLUR
 } from "./propertiesActionTypes";
 
 export const setWidth = payload => {
@@ -37,6 +38,13 @@ export const setOpacity = payload => {
 export const setRotation = payload => {
   return {
     type: SET_ROTATION,
+    payload
+  };
+};
+
+export const setBlur = payload => {
+  return {
+    type: SET_BLUR,
     payload
   };
 };

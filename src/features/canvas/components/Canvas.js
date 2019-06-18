@@ -23,6 +23,7 @@ function Canvas(props) {
         color={props.color}
         opacity={props.opacity}
         rotation={props.rotation}
+        blur={props.blur}
       />
     </StyledCanvas>
   );
@@ -34,7 +35,8 @@ const mapStateToProps = state => {
     width: state.properties.width,
     height: state.properties.height,
     opacity: state.properties.opacity,
-    rotation: state.properties.rotation
+    rotation: state.properties.rotation,
+    blur: state.properties.blur
   };
 };
 

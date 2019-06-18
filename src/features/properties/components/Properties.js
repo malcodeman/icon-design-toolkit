@@ -8,11 +8,13 @@ import {
   setHeight,
   setColor,
   setOpacity,
-  setRotation
+  setRotation,
+  setBlur
 } from "../actions/propertiesActionCreators";
 import Modes from "./Modes";
 import Dimensions from "./Dimensions";
 import Fill from "./Fill";
+import Blur from "./Blur";
 import Code from "./Code";
 
 const PropertiesPanel = styled.div`
@@ -44,6 +46,7 @@ function Properties(props) {
           setRotation={props.setRotation}
         />
         <Fill color={props.color} setColor={props.setColor} />
+        <Blur blur={props.blur} setBlur={props.setBlur} />
       </>
     );
   }
@@ -56,6 +59,7 @@ function Properties(props) {
         color={props.color}
         opacity={props.opacity}
         rotation={props.rotation}
+        blur={props.blur}
       />
     );
   }
@@ -75,11 +79,12 @@ const mapStateToProps = state => {
     width: state.properties.width,
     height: state.properties.height,
     opacity: state.properties.opacity,
-    rotation: state.properties.rotation
+    rotation: state.properties.rotation,
+    blur: state.properties.blur
   };
 };
 
 export default connect(
   mapStateToProps,
-  { setWidth, setHeight, setColor, setOpacity, setRotation }
+  { setWidth, setHeight, setColor, setOpacity, setRotation, setBlur }
 )(Properties);

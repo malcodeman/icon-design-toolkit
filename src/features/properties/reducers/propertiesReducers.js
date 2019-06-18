@@ -3,7 +3,8 @@ import {
   SET_HEIGHT,
   SET_COLOR,
   SET_OPACITY,
-  SET_ROTATION
+  SET_ROTATION,
+  SET_BLUR
 } from "../actions/propertiesActionTypes";
 
 const initialState = {
@@ -11,7 +12,8 @@ const initialState = {
   width: 128,
   height: 128,
   opacity: 1,
-  rotation: 0
+  rotation: 0,
+  blur: 0
 };
 
 export default (state = initialState, action) => {
@@ -44,6 +46,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         rotation: action.payload
+      };
+    case SET_BLUR:
+      return {
+        ...state,
+        blur: action.payload
       };
     default:
       return state;
