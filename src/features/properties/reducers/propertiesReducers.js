@@ -2,14 +2,16 @@ import {
   SET_WIDTH,
   SET_HEIGHT,
   SET_COLOR,
-  SET_OPACITY
+  SET_OPACITY,
+  SET_ROTATION
 } from "../actions/propertiesActionTypes";
 
 const initialState = {
   color: "#000",
   width: 128,
   height: 128,
-  opacity: 1
+  opacity: 1,
+  rotation: 0
 };
 
 export default (state = initialState, action) => {
@@ -37,6 +39,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         opacity: action.payload
+      };
+    case SET_ROTATION:
+      return {
+        ...state,
+        rotation: action.payload
       };
     default:
       return state;

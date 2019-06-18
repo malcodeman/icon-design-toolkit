@@ -54,6 +54,15 @@ function Dimensions(props) {
             onChange={e => props.setOpacity(e.currentTarget.value)}
           />
         </Control>
+        <Control>
+          <ControlLabel>Rotation</ControlLabel>
+          <ControlInput
+            type="text"
+            value={props.rotation}
+            onFocus={handleOnFocus}
+            onChange={e => props.setRotation(e.currentTarget.value)}
+          />
+        </Control>
       </PanelBody>
     </Panel>
   );

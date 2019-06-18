@@ -7,7 +7,8 @@ import {
   setWidth,
   setHeight,
   setColor,
-  setOpacity
+  setOpacity,
+  setRotation
 } from "../actions/propertiesActionCreators";
 import Modes from "./Modes";
 import Dimensions from "./Dimensions";
@@ -36,9 +37,11 @@ function Properties(props) {
           width={props.width}
           height={props.height}
           opacity={props.opacity}
+          rotation={props.rotation}
           setWidth={props.setWidth}
           setHeight={props.setHeight}
           setOpacity={props.setOpacity}
+          setRotation={props.setRotation}
         />
         <Fill color={props.color} setColor={props.setColor} />
       </>
@@ -52,6 +55,7 @@ function Properties(props) {
         height={props.height}
         color={props.color}
         opacity={props.opacity}
+        rotation={props.rotation}
       />
     );
   }
@@ -70,11 +74,12 @@ const mapStateToProps = state => {
     color: state.properties.color,
     width: state.properties.width,
     height: state.properties.height,
-    opacity: state.properties.opacity
+    opacity: state.properties.opacity,
+    rotation: state.properties.rotation
   };
 };
 
 export default connect(
   mapStateToProps,
-  { setWidth, setHeight, setColor, setOpacity }
+  { setWidth, setHeight, setColor, setOpacity, setRotation }
 )(Properties);

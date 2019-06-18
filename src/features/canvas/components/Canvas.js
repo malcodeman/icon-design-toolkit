@@ -22,6 +22,7 @@ function Canvas(props) {
         height={props.height}
         color={props.color}
         opacity={props.opacity}
+        rotation={props.rotation}
       />
     </StyledCanvas>
   );
@@ -32,7 +33,8 @@ const mapStateToProps = state => {
     color: state.properties.color,
     width: state.properties.width,
     height: state.properties.height,
-    opacity: state.properties.opacity
+    opacity: state.properties.opacity,
+    rotation: state.properties.rotation
   };
 };
 
