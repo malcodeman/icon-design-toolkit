@@ -6,7 +6,8 @@ import { Route } from "react-router-dom";
 import {
   setWidth,
   setHeight,
-  setColor
+  setColor,
+  setOpacity
 } from "../actions/propertiesActionCreators";
 import Modes from "./Modes";
 import Dimensions from "./Dimensions";
@@ -34,8 +35,10 @@ function Properties(props) {
         <Dimensions
           width={props.width}
           height={props.height}
+          opacity={props.opacity}
           setWidth={props.setWidth}
           setHeight={props.setHeight}
+          setOpacity={props.setOpacity}
         />
         <Fill color={props.color} setColor={props.setColor} />
       </>
@@ -44,7 +47,12 @@ function Properties(props) {
 
   function renderCodeMode() {
     return (
-      <Code width={props.width} height={props.height} color={props.color} />
+      <Code
+        width={props.width}
+        height={props.height}
+        color={props.color}
+        opacity={props.opacity}
+      />
     );
   }
 
@@ -61,11 +69,12 @@ const mapStateToProps = state => {
   return {
     color: state.properties.color,
     width: state.properties.width,
-    height: state.properties.height
+    height: state.properties.height,
+    opacity: state.properties.opacity
   };
 };
 
 export default connect(
   mapStateToProps,
-  { setWidth, setHeight, setColor }
+  { setWidth, setHeight, setColor, setOpacity }
 )(Properties);

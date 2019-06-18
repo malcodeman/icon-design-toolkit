@@ -17,7 +17,12 @@ const StyledCanvas = styled.div`
 function Canvas(props) {
   return (
     <StyledCanvas>
-      <GitHub width={props.width} height={props.height} color={props.color} />
+      <GitHub
+        width={props.width}
+        height={props.height}
+        color={props.color}
+        opacity={props.opacity}
+      />
     </StyledCanvas>
   );
 }
@@ -26,7 +31,8 @@ const mapStateToProps = state => {
   return {
     color: state.properties.color,
     width: state.properties.width,
-    height: state.properties.height
+    height: state.properties.height,
+    opacity: state.properties.opacity
   };
 };
 

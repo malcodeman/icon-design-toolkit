@@ -45,6 +45,15 @@ function Dimensions(props) {
             }
           />
         </Control>
+        <Control>
+          <ControlLabel>Opacity</ControlLabel>
+          <ControlInput
+            type="text"
+            value={props.opacity}
+            onFocus={handleOnFocus}
+            onChange={e => props.setOpacity(e.currentTarget.value)}
+          />
+        </Control>
       </PanelBody>
     </Panel>
   );

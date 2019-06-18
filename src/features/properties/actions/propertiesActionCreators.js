@@ -1,4 +1,9 @@
-import { SET_WIDTH, SET_HEIGHT, SET_COLOR } from "./propertiesActionTypes";
+import {
+  SET_WIDTH,
+  SET_HEIGHT,
+  SET_COLOR,
+  SET_OPACITY
+} from "./propertiesActionTypes";
 
 export const setWidth = payload => {
   return {
@@ -17,6 +22,13 @@ export const setHeight = payload => {
 export const setColor = payload => {
   return {
     type: SET_COLOR,
+    payload
+  };
+};
+
+export const setOpacity = payload => {
+  return {
+    type: SET_OPACITY,
     payload
   };
 };

@@ -1,13 +1,15 @@
 import {
   SET_WIDTH,
   SET_HEIGHT,
-  SET_COLOR
+  SET_COLOR,
+  SET_OPACITY
 } from "../actions/propertiesActionTypes";
 
 const initialState = {
   color: "#000",
   width: 128,
-  height: 128
+  height: 128,
+  opacity: 1
 };
 
 export default (state = initialState, action) => {
@@ -30,6 +32,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         color: action.payload
+      };
+    case SET_OPACITY:
+      return {
+        ...state,
+        opacity: action.payload
       };
     default:
       return state;
