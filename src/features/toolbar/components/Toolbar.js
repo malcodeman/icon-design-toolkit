@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import Theme from "./Theme";
+import ShoppingBag from "../styles/icons/ShoppingBag";
 
 const StyledToolbar = styled.div`
   display: flex;
@@ -14,10 +16,18 @@ const StyledToolbar = styled.div`
     `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
 `;
 
+const StyledLink = styled(Link)`
+  margin-top: 24px;
+  color: ${props => props.theme.primary};
+`;
+
 function Toolbar(props) {
   return (
     <StyledToolbar>
       <Theme />
+      <StyledLink to="/store">
+        <ShoppingBag size={16} />
+      </StyledLink>
     </StyledToolbar>
   );
 }
