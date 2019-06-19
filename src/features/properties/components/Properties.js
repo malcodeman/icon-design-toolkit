@@ -18,12 +18,7 @@ import Blur from "./Blur";
 import Code from "./Code";
 
 const PropertiesPanel = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
   display: flex;
-  width: 222px;
   flex-direction: column;
   overflow-y: auto;
   background-color: ${props => props.theme.backgroundPrimary};

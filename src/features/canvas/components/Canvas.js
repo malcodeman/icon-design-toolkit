@@ -8,8 +8,6 @@ const StyledCanvas = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: calc(100% - 222px);
-  height: 100vh;
   overflow-y: auto;
   background-color: ${props => props.theme.backgroundCanvas};
 `;
