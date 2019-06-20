@@ -7,7 +7,7 @@ import ShoppingBag from "../styles/icons/ShoppingBag";
 
 const StyledToolbar = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   overflow-y: auto;
   padding: 10px;
@@ -15,11 +15,20 @@ const StyledToolbar = styled.div`
   transition: ${props => props.theme.backgroundColorTransition};
   border-right: ${props =>
     `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
+  @media (min-width: 768px) {
+    flex-direction: column;
+    justify-content: initial;
+  }
 `;
 
 const StyledLink = styled(Link)`
-  margin-top: 24px;
+  display: flex;
+  margin-left: 24px;
   color: ${props => props.theme.primary};
+  @media (min-width: 768px) {
+    margin-top: 24px;
+    margin-left: initial;
+  }
 `;
 
 function Toolbar(props) {
