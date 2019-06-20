@@ -11,6 +11,7 @@ const StyledPanelTitle = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+  background-color: ${props => props.theme.backgroundInput};
 `;
 
 const PanelTitleText = styled.h2`

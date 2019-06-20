@@ -12,6 +12,7 @@ const StyledToolbar = styled.div`
   overflow-y: auto;
   padding: 10px;
   background-color: ${props => props.theme.backgroundPrimary};
+  transition: ${props => props.theme.backgroundColorTransition};
   border-right: ${props =>
     `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
 `;

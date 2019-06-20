@@ -31,7 +31,6 @@ export const ControlLabel = styled.label`
 
 export const ControlInput = styled.input`
   font-size: 0.8rem;
-  background-color: #fff;
   padding: 4px;
   width: 100%;
   cursor: default;
@@ -39,10 +38,10 @@ export const ControlInput = styled.input`
   font-family: "Roboto", sans-serif;
   color: ${props => props.theme.primary};
   border-radius: ${props => props.theme.borderRadius};
+  background-color: ${props => props.theme.backgroundInput};
   border: ${props =>
     `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
   &:focus {
-    color: ${props => props.theme.brand};
     border-color: ${props => props.theme.brand};
   }
 `;

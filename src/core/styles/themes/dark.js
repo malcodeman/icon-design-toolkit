@@ -1,12 +1,14 @@
 export default {
-  brand: "#0095ff",
-  primary: "#fff",
-  secondary: "#657786",
-  backgroundPrimary: "#10171e",
-  backgroundSecondary: "#1c2938",
+  brand: "#1473e6",
+  primary: "#FFFFFF",
+  secondary: "#818181",
+  backgroundPrimary: "#181818",
+  backgroundCanvas: "#252525",
+  backgroundInput: "#333333",
   backgroundColorTransition: "background-color 0.2s ease",
-  error: "#E0245E",
-  link: "#1B95E0",
-  borderColor: "rgba(0, 0, 0, 0.4)",
-  borderRadius: "3px"
+  error: "#f82b60",
+  link: "#2680eb",
+  borderColor: "#000000",
+  borderWidth: "1px",
+  borderRadius: "2px"
 };

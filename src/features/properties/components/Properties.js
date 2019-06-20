@@ -22,6 +22,7 @@ const PropertiesPanel = styled.div`
   flex-direction: column;
   overflow-y: auto;
   background-color: ${props => props.theme.backgroundPrimary};
+  transition: ${props => props.theme.backgroundColorTransition};
   border-left: ${props =>
     `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
 `;

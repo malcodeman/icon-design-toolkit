@@ -10,6 +10,7 @@ const StyledCanvas = styled.div`
   justify-content: center;
   overflow-y: auto;
   background-color: ${props => props.theme.backgroundCanvas};
+  transition: ${props => props.theme.backgroundColorTransition};
 `;
 
 function Canvas(props) {
