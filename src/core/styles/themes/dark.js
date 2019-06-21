@@ -3,6 +3,7 @@ export default {
   primary: "#FFFFFF",
   secondary: "#818181",
   backgroundPrimary: "#181818",
+  backgroundSecondary: "#111111",
   backgroundCanvas: "#252525",
   backgroundInput: "#333333",
   backgroundColorTransition: "background-color 0.2s ease",

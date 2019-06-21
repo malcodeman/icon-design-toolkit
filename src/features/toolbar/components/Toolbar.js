@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-import Theme from "./Theme";
+import Plus from "../styles/icons/Plus";
 import ShoppingBag from "../styles/icons/ShoppingBag";
+import Theme from "./Theme";
 
 const StyledToolbar = styled.div`
   display: flex;
@@ -11,33 +12,42 @@ const StyledToolbar = styled.div`
   align-items: center;
   overflow-y: auto;
   padding: 10px;
-  background-color: ${props => props.theme.backgroundPrimary};
+  background-color: ${props => props.theme.backgroundSecondary};
   transition: ${props => props.theme.backgroundColorTransition};
-  border-right: ${props =>
+  border-bottom: ${props =>
     `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
   @media (min-width: 768px) {
     flex-direction: column;
     justify-content: initial;
+    border-bottom: initial;
+    border-right: ${props =>
+      `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledNavLink = styled(NavLink)`
   display: flex;
-  margin-left: 24px;
+  margin-right: 24px;
   color: ${props => props.theme.primary};
+  &.active {
+    color: ${props => props.theme.brand};
+  }
   @media (min-width: 768px) {
-    margin-top: 24px;
-    margin-left: initial;
+    margin-right: initial;
+    margin-bottom: 24px;
   }
 `;
 
 function Toolbar(props) {
   return (
     <StyledToolbar>
-      <Theme />
-      <StyledLink to="/store">
+      <StyledNavLink exact to="/">
+        <Plus size={16} />
+      </StyledNavLink>
+      <StyledNavLink to="/store">
         <ShoppingBag size={16} />
-      </StyledLink>
+      </StyledNavLink>
+      <Theme />
     </StyledToolbar>
   );
 }
