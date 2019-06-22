@@ -38,7 +38,7 @@ function Blur(props) {
 }
 
 Blur.propTypes = {
-  blur: PropTypes.string.isRequired,
+  blur: PropTypes.number.isRequired,
   setBlur: PropTypes.func.isRequired
 };
 

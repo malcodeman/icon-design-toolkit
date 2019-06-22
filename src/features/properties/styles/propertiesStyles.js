@@ -20,7 +20,8 @@ export const Control = styled.div`
   align-items: center;
   padding: 0 10px;
   :not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: ${props =>
+      props.marginBottom ? props.marginBottom : "10px"};
   }
 `;
 
