@@ -1,32 +1,32 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 
 const StyledModes = styled.header`
   display: flex;
   align-items: center;
 `;
 
-const StyledNavLink = styled(NavLink)`
+const Text = styled.span`
   font-size: 0.8rem;
   padding: 10px;
   line-height: 40px;
-  color: ${props => props.theme.secondary};
+  cursor: default;
   &:hover {
     color: ${props => props.theme.primary};
   }
-  &.active {
-    color: ${props => props.theme.primary};
-  }
+  color: ${props =>
+    props.active ? props.theme.primary : props.theme.secondary};
 `;
 
-function Modes() {
+function Modes(props) {
   return (
     <StyledModes>
-      <StyledNavLink exact to="/">
+      <Text active={!props.showCode} onClick={() => props.setShowCode(false)}>
         Design
-      </StyledNavLink>
-      <StyledNavLink to="/code">Code</StyledNavLink>
+      </Text>
+      <Text active={props.showCode} onClick={() => props.setShowCode(true)}>
+        Code
+      </Text>
     </StyledModes>
   );
 }

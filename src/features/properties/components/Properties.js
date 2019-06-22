@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { Route } from "react-router-dom";
 
 import {
   setWidth,
@@ -28,6 +27,8 @@ const PropertiesPanel = styled.div`
 `;
 
 function Properties(props) {
+  const [showCode, setShowCode] = useState(false);
+
   function renderDesignMode() {
     return (
       <>
@@ -62,9 +63,8 @@ function Properties(props) {
 
   return (
     <PropertiesPanel>
-      <Modes />
-      <Route exact path="/" render={() => renderDesignMode()} />
-      <Route path="/code" render={() => renderCodeMode()} />
+      <Modes showCode={showCode} setShowCode={setShowCode} />
+      {showCode ? renderCodeMode() : renderDesignMode()}
     </PropertiesPanel>
   );
 }
