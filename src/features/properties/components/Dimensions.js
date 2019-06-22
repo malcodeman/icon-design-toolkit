@@ -6,10 +6,10 @@ import {
   Panel,
   PanelBody,
   Control,
-  ControlLabel,
-  ControlInput
+  ControlLabel
 } from "../styles/propertiesStyles";
 import Lock from "../styles/icons/Lock";
+import Input from "./Input";
 
 const LockGrid = styled.div`
   display: grid;
@@ -50,42 +50,49 @@ const LabelWrapper = styled.div`
 function Dimensions(props) {
   const [constrainProportions, setConstrainProportions] = useState(true);
 
-  function handleOnFocus(e) {
-    e.target.select();
-  }
-
   function handleSetWidth(value) {
     const { setWidth, width } = props;
+    const number = Number(value);
 
-    if (!value || isNaN(value) || value.toString().length > 4) {
+    if (!number || isNaN(number) || number.toString().length > 4) {
       return;
     }
     if (constrainProportions) {
       const { height, setHeight } = props;
-      const adjustedHeight = (value * height) / width;
+      const adjustedHeight = (number * height) / width;
 
-      setWidth(value);
+      setWidth(number);
       setHeight(adjustedHeight);
     } else {
-      setWidth(value);
+      setWidth(number);
     }
   }
 
   function handleSetHeight(value) {
     const { setHeight, height } = props;
+    const number = Number(value);
 
-    if (!value || isNaN(value) || value.toString().length > 4) {
+    if (!number || isNaN(number) || number.toString().length > 4) {
       return;
     }
     if (constrainProportions) {
       const { width, setWidth } = props;
-      const adjustedWidth = (value * width) / height;
+      const adjustedWidth = (number * width) / height;
 
-      setHeight(value);
+      setHeight(number);
       setWidth(adjustedWidth);
     } else {
-      setHeight(value);
+      setHeight(number);
     }
+  }
+
+  function handleSetRotation(value) {
+    const number = Number(value);
+
+    if (isNaN(number) || number > 360) {
+      return;
+    }
+    props.setRotation(number);
   }
 
   function handleToggleConstrains() {
@@ -102,11 +109,10 @@ function Dimensions(props) {
             <ControlLabel>Width</ControlLabel>
             <BorderTop />
           </LabelWrapper>
-          <ControlInput
-            type="text"
+          <Input
             value={props.width}
-            onFocus={handleOnFocus}
-            onChange={e => handleSetWidth(Number(e.currentTarget.value))}
+            handleSetValue={handleSetWidth}
+            operators
           />
         </Control>
         <LockGrid>
@@ -122,29 +128,22 @@ function Dimensions(props) {
             <ControlLabel>Height</ControlLabel>
             <BorderBottom />
           </LabelWrapper>
-          <ControlInput
-            type="text"
+          <Input
             value={props.height}
-            onFocus={handleOnFocus}
-            onChange={e => handleSetHeight(Number(e.currentTarget.value))}
+            handleSetValue={handleSetHeight}
+            operators
           />
         </Control>
         <Control>
           <ControlLabel>Opacity</ControlLabel>
-          <ControlInput
-            type="text"
-            value={props.opacity}
-            onFocus={handleOnFocus}
-            onChange={e => props.setOpacity(e.currentTarget.value)}
-          />
+          <Input value={props.opacity} handleSetValue={props.setOpacity} />
         </Control>
         <Control>
           <ControlLabel>Rotation</ControlLabel>
-          <ControlInput
-            type="text"
+          <Input
             value={props.rotation}
-            onFocus={handleOnFocus}
-            onChange={e => props.setRotation(e.currentTarget.value)}
+            handleSetValue={handleSetRotation}
+            operators
           />
         </Control>
       </PanelBody>
@@ -155,8 +154,12 @@ function Dimensions(props) {
 Dimensions.propTypes = {
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
+  opacity: PropTypes.number.isRequired,
+  rotation: PropTypes.number.isRequired,
   setWidth: PropTypes.func.isRequired,
-  setHeight: PropTypes.func.isRequired
+  setHeight: PropTypes.func.isRequired,
+  setOpacity: PropTypes.func.isRequired,
+  setRotation: PropTypes.func.isRequired
 };
 
 export default Dimensions;

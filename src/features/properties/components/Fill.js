@@ -2,13 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import {
-  Panel,
-  PanelBody,
-  Control,
-  ControlInput
-} from "../styles/propertiesStyles";
+import { Panel, PanelBody, Control } from "../styles/propertiesStyles";
 import PanelTitle from "./PanelTitle";
+import Input from "./Input";
 
 const ColorWrapper = styled.div`
   width: 36px;
@@ -29,14 +25,6 @@ const Color = styled.div`
 function Fill(props) {
   const [expanded, setExpanded] = useState(true);
 
-  function handleOnFocus(e) {
-    e.target.select();
-  }
-
-  function handleOnChange(value, set) {
-    set(value);
-  }
-
   return (
     <Panel>
       <PanelTitle title="Fill" expanded={expanded} setExpanded={setExpanded} />
@@ -46,13 +34,10 @@ function Fill(props) {
             <ColorWrapper>
               <Color color={props.color} />
             </ColorWrapper>
-            <ControlInput
+            <Input
               type="text"
               value={props.color}
-              onFocus={handleOnFocus}
-              onChange={e =>
-                handleOnChange(e.currentTarget.value, props.setColor)
-              }
+              handleSetValue={props.setColor}
             />
           </Control>
         </PanelBody>

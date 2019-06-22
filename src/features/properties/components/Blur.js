@@ -5,16 +5,21 @@ import {
   Panel,
   PanelBody,
   Control,
-  ControlLabel,
-  ControlInput
+  ControlLabel
 } from "../styles/propertiesStyles";
 import PanelTitle from "./PanelTitle";
+import Input from "./Input";
 
 function Blur(props) {
   const [expanded, setExpanded] = useState(true);
 
-  function handleOnFocus(e) {
-    e.target.select();
+  function handleOnChange(value) {
+    const number = Number(value);
+
+    if (!number || isNaN(number) || number.toString().length > 4) {
+      return;
+    }
+    props.setBlur(number);
   }
 
   return (
@@ -24,11 +29,11 @@ function Blur(props) {
         <PanelBody>
           <Control>
             <ControlLabel>Amount</ControlLabel>
-            <ControlInput
+            <Input
               type="text"
               value={props.blur}
-              onFocus={handleOnFocus}
-              onChange={e => props.setBlur(e.currentTarget.value)}
+              handleSetValue={handleOnChange}
+              operators
             />
           </Control>
         </PanelBody>
