@@ -16,7 +16,7 @@ function Blur(props) {
   function handleOnChange(value) {
     const number = Number(value);
 
-    if (!number || isNaN(number) || number.toString().length > 4) {
+    if (number < 0 || isNaN(number) || number.toString().length > 4) {
       return;
     }
     props.setBlur(number);
