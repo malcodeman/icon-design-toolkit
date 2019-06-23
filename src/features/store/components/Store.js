@@ -1,18 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 
+import { setIconId } from "../../canvas/actions/canvasActionCreators";
 import featherIcons from "../icons/feather";
 
 const Wrapper = styled.div`
+  overflow-y: auto;
   transition: ${props => props.theme.backgroundColorTransition};
   background-color: ${props => props.theme.backgroundPrimary};
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(188px, 1fr));
-  grid-gap: 20px;
-  padding: 10%;
+  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+  grid-gap: 10px;
+  padding: 10px;
 `;
 
 const IconWrapper = styled.div`
@@ -20,7 +23,8 @@ const IconWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 10px;
+  cursor: pointer;
   color: ${props => props.theme.primary};
   border-radius: ${props => props.theme.borderRadius};
   background-color: ${props => props.theme.backgroundSecondary};
@@ -30,16 +34,19 @@ const IconWrapper = styled.div`
 
 const IconName = styled.span`
   font-size: 0.8rem;
-  margin-top: 20px;
+  margin-top: 10px;
+  text-align: center;
   color: ${props => props.theme.primary};
 `;
 
-function Store() {
+function Store(props) {
+  const { setIconId } = props;
+
   return (
     <Wrapper>
       <Grid>
         {featherIcons.map(icon => (
-          <IconWrapper key={icon.id}>
+          <IconWrapper key={icon.id} onClick={() => setIconId(icon.id)}>
             {icon.component}
             <IconName>{icon.name}</IconName>
           </IconWrapper>
@@ -49,4 +56,7 @@ function Store() {
   );
 }
 
-export default Store;
+export default connect(
+  null,
+  { setIconId }
+)(Store);

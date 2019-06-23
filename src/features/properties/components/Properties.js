@@ -51,6 +51,7 @@ function Properties(props) {
   function renderCodeMode() {
     return (
       <Code
+        iconId={props.iconId}
         width={props.width}
         height={props.height}
         color={props.color}
@@ -71,6 +72,7 @@ function Properties(props) {
 
 const mapStateToProps = state => {
   return {
+    iconId: state.canvas.iconId,
     color: state.properties.color,
     width: state.properties.width,
     height: state.properties.height,

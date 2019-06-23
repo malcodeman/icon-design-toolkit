@@ -11,6 +11,7 @@ import AlignJustify from "./feather/AlignJustify";
 import AlignLeft from "./feather/AlignLeft";
 import AlignRight from "./feather/AlignRight";
 import Anchor from "./feather/Anchor";
+import Github from "./feather/Github";
 
 export default [
   {
@@ -62,5 +63,10 @@ export default [
     id: nanoid(),
     name: "Anchor",
     component: <Anchor />
+  },
+  {
+    id: nanoid(),
+    name: "Github",
+    component: <Github />
   }
 ];

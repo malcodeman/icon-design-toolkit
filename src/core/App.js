@@ -25,10 +25,10 @@ const CanvasGrid = styled.div`
 const StoreGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 40px auto;
+  grid-template-rows: 40px auto 40vh auto;
   height: 100vh;
   @media (min-width: 768px) {
-    grid-template-columns: 40px 1fr;
+    grid-template-columns: 40px 1fr 2fr 222px;
     grid-template-rows: initial;
   }
 `;
@@ -61,6 +61,8 @@ function App(props) {
             <StoreGrid>
               <Toolbar />
               <Store />
+              <Canvas />
+              <Properties />
             </StoreGrid>
           )}
         />
