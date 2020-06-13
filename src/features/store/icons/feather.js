@@ -1,5 +1,5 @@
 import React from "react";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 
 import Activity from "./feather/Activity";
 import Airplay from "./feather/Airplay";
@@ -17,56 +17,56 @@ export default [
   {
     id: nanoid(),
     name: "Activity",
-    component: <Activity />
+    component: <Activity />,
   },
   {
     id: nanoid(),
     name: "Airplay",
-    component: <Airplay />
+    component: <Airplay />,
   },
   {
     id: nanoid(),
     name: "Alert circle",
-    component: <AlertCircle />
+    component: <AlertCircle />,
   },
   {
     id: nanoid(),
     name: "Alert octagon",
-    component: <AlertOctagon />
+    component: <AlertOctagon />,
   },
   {
     id: nanoid(),
     name: "Alert triangle",
-    component: <AlertTriangle />
+    component: <AlertTriangle />,
   },
   {
     id: nanoid(),
     name: "Align center",
-    component: <AlignCenter />
+    component: <AlignCenter />,
   },
   {
     id: nanoid(),
     name: "Align justify",
-    component: <AlignJustify />
+    component: <AlignJustify />,
   },
   {
     id: nanoid(),
     name: "Align left",
-    component: <AlignLeft />
+    component: <AlignLeft />,
   },
   {
     id: nanoid(),
     name: "Align right",
-    component: <AlignRight />
+    component: <AlignRight />,
   },
   {
     id: nanoid(),
     name: "Anchor",
-    component: <Anchor />
+    component: <Anchor />,
   },
   {
     id: nanoid(),
     name: "Github",
-    component: <Github />
-  }
+    component: <Github />,
+  },
 ];
