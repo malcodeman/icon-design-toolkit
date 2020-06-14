@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { Router, Route } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 
@@ -33,16 +33,12 @@ const StoreGrid = styled.div`
   }
 `;
 
-function App(props) {
-  function getTheme() {
-    const { darkMode } = props;
-    const theme = darkMode ? darkTheme : lightTheme;
-
-    return theme;
-  }
+function App() {
+  const darkMode = useSelector((state) => state.settings.darkMode);
+  const theme = darkMode ? darkTheme : lightTheme;
 
   return (
-    <ThemeProvider theme={getTheme()}>
+    <ThemeProvider theme={theme}>
       <Router history={history}>
         <Route
           exact
@@ -71,13 +67,4 @@ function App(props) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    darkMode: state.settings.darkMode
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(App);
+export default App;

@@ -1,6 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 import featherIcons from "../../store/icons/feather";
@@ -10,44 +9,31 @@ const StyledCanvas = styled.div`
   align-items: center;
   justify-content: center;
   overflow-y: auto;
-  background-color: ${props => props.theme.backgroundCanvas};
-  transition: ${props => props.theme.backgroundColorTransition};
+  background-color: ${(props) => props.theme.backgroundCanvas};
+  transition: ${(props) => props.theme.backgroundColorTransition};
 `;
 
-function Canvas(props) {
-  const { iconId } = props;
-  const icon = featherIcons.find(icon => icon.id === iconId);
+function Canvas() {
+  const iconId = useSelector((state) => state.canvas.iconId);
+  const color = useSelector((state) => state.properties.color);
+  const width = useSelector((state) => state.properties.width);
+  const height = useSelector((state) => state.properties.height);
+  const opacity = useSelector((state) => state.properties.opacity);
+  const rotation = useSelector((state) => state.properties.rotation);
+  const blur = useSelector((state) => state.properties.blur);
+  const icon = featherIcons.find((icon) => icon.id === iconId);
   const iconProps = {
-    color: props.color,
-    width: props.width,
-    height: props.height,
-    opacity: props.opacity,
-    transform: `rotate(${props.rotation})`,
-    filter: `blur(${props.blur}px)`,
-    style: { transition: "all 0.2s ease" }
+    color,
+    width,
+    height,
+    opacity,
+    transform: `rotate(${rotation})`,
+    filter: `blur(${blur}px)`,
+    style: { transition: "all 0.2s ease" },
   };
   const element = React.cloneElement(icon.component, iconProps);
 
   return <StyledCanvas>{element}</StyledCanvas>;
 }
 
-const mapStateToProps = state => {
-  return {
-    iconId: state.canvas.iconId,
-    color: state.properties.color,
-    width: state.properties.width,
-    height: state.properties.height,
-    opacity: state.properties.opacity,
-    rotation: state.properties.rotation,
-    blur: state.properties.blur
-  };
-};
-
-Canvas.propTypes = {
-  iconId: PropTypes.string.isRequired
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(Canvas);
+export default Canvas;
