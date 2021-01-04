@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Router, Route } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 
+import Global from "./styles/global";
 import history from "./routing/history";
 import lightTheme from "./styles/themes/light";
 import darkTheme from "./styles/themes/dark";
@@ -63,6 +64,7 @@ function App() {
           )}
         />
       </Router>
+      <Global />
     </ThemeProvider>
   );
 }
