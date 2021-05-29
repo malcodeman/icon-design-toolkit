@@ -11,13 +11,16 @@ const StyledPanelTitle = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: ${props => props.theme.backgroundInput};
+  background-color: ${(props) => props.theme.backgroundInput};
+  svg {
+    cursor: pointer;
+  }
 `;
 
 const PanelTitleText = styled.h2`
   font-size: 0.8rem;
   font-weight: normal;
-  color: ${props => props.theme.primary};
+  color: ${(props) => props.theme.primary};
 `;
 
 function PanelTitle(props) {
@@ -43,11 +46,11 @@ function PanelTitle(props) {
 
 PanelTitle.propTypes = {
   expanded: PropTypes.bool,
-  setExpanded: PropTypes.func.isRequired
+  setExpanded: PropTypes.func.isRequired,
 };
 
 PanelTitle.defaultProps = {
-  expanded: false
+  expanded: false,
 };
 
 export default withTheme(PanelTitle);
