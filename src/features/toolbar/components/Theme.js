@@ -1,10 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTheme } from "styled-components";
+import { Moon, Sun } from "react-feather";
 
 import { toggleDarkMode } from "../../settings/actions/settingsActionCreators";
-import Moon from "../styles/icons/Moon";
-import Sun from "../styles/icons/Sun";
 
 function Theme() {
   const dispatch = useDispatch();

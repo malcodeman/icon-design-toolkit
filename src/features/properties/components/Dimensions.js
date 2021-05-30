@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Lock } from "react-feather";
 
 import {
   Panel,
   PanelBody,
   Control,
-  ControlLabel
+  ControlLabel,
 } from "../styles/propertiesStyles";
-import Lock from "../styles/icons/Lock";
 import Input from "./Input";
 
 const LockGrid = styled.div`
@@ -20,25 +20,25 @@ const LockWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 0 5px;
-  color: ${props => (props.active ? props.theme.brand : props.theme.primary)};
+  color: ${(props) => (props.active ? props.theme.brand : props.theme.primary)};
 `;
 
 const BorderTop = styled.div`
   height: 5px;
   width: 5px;
   margin: 0 10px;
-  border-top-left-radius: ${props => props.theme.borderRadius};
-  border-top: ${props => `1px solid ${props.theme.secondary};`};
-  border-left: ${props => `1px solid ${props.theme.secondary};`};
+  border-top-left-radius: ${(props) => props.theme.borderRadius};
+  border-top: ${(props) => `1px solid ${props.theme.secondary};`};
+  border-left: ${(props) => `1px solid ${props.theme.secondary};`};
 `;
 
 const BorderBottom = styled.div`
   height: 5px;
   width: 5px;
   margin: 0 10px;
-  border-bottom-left-radius: ${props => props.theme.borderRadius};
-  border-left: ${props => `1px solid ${props.theme.secondary};`};
-  border-bottom: ${props => `1px solid ${props.theme.secondary};`};
+  border-bottom-left-radius: ${(props) => props.theme.borderRadius};
+  border-left: ${(props) => `1px solid ${props.theme.secondary};`};
+  border-bottom: ${(props) => `1px solid ${props.theme.secondary};`};
 `;
 
 const LabelWrapper = styled.div`
@@ -159,7 +159,7 @@ Dimensions.propTypes = {
   setWidth: PropTypes.func.isRequired,
   setHeight: PropTypes.func.isRequired,
   setOpacity: PropTypes.func.isRequired,
-  setRotation: PropTypes.func.isRequired
+  setRotation: PropTypes.func.isRequired,
 };
 
 export default Dimensions;

@@ -1,9 +1,7 @@
-import featherIcons from "../../store/icons/feather";
 import { SET_ICON_ID } from "../actions/canvasActionTypes";
 
-const github = featherIcons.find(icon => icon.name === "Github");
 const initialState = {
-  iconId: github.id
+  iconId: "GitHub",
 };
 
 export default (state = initialState, action) => {
@@ -11,7 +9,7 @@ export default (state = initialState, action) => {
     case SET_ICON_ID:
       return {
         ...state,
-        iconId: action.payload
+        iconId: action.payload,
       };
     default:
       return state;

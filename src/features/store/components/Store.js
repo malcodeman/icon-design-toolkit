@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import * as FeatherIcons from "react-feather";
 
 import { setIconId } from "../../canvas/actions/canvasActionCreators";
-import featherIcons from "../icons/feather";
 
 const Wrapper = styled.div`
   overflow-y: auto;
@@ -36,6 +36,7 @@ const IconName = styled.span`
   font-size: 0.8rem;
   margin-top: 10px;
   text-align: center;
+  overflow-wrap: anywhere;
   color: ${(props) => props.theme.primary};
 `;
 
@@ -45,13 +46,13 @@ function Store() {
   return (
     <Wrapper>
       <Grid>
-        {featherIcons.map((icon) => (
+        {Object.values(FeatherIcons).map((Icon) => (
           <IconWrapper
-            key={icon.id}
-            onClick={() => dispatch(setIconId(icon.id))}
+            key={Icon.displayName}
+            onClick={() => dispatch(setIconId(Icon.displayName))}
           >
-            {icon.component}
-            <IconName>{icon.name}</IconName>
+            <Icon />
+            <IconName>{Icon.displayName}</IconName>
           </IconWrapper>
         ))}
       </Grid>

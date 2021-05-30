@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled, { withTheme } from "styled-components";
-
-import Minus from "../styles/icons/Minus";
-import Plus from "../styles/icons/Plus";
+import { Minus, Plus } from "react-feather";
 
 const StyledPanelTitle = styled.div`
   height: 26px;
@@ -24,10 +22,12 @@ const PanelTitleText = styled.h2`
 `;
 
 function PanelTitle(props) {
+  const { expanded = false } = props;
+
   return (
     <StyledPanelTitle>
       <PanelTitleText>{props.title}</PanelTitleText>
-      {props.expanded ? (
+      {expanded ? (
         <Minus
           size={12}
           color={props.theme.primary}
@@ -47,10 +47,6 @@ function PanelTitle(props) {
 PanelTitle.propTypes = {
   expanded: PropTypes.bool,
   setExpanded: PropTypes.func.isRequired,
-};
-
-PanelTitle.defaultProps = {
-  expanded: false,
 };
 
 export default withTheme(PanelTitle);
