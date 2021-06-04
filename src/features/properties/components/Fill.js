@@ -1,25 +1,22 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { HexColorPicker } from "react-colorful";
 
-import { Panel, PanelBody, Control } from "../styles/propertiesStyles";
+import { Panel, PanelBody } from "../styles/propertiesStyles";
 import PanelTitle from "./PanelTitle";
 import Input from "./Input";
 
-const ColorWrapper = styled.div`
-  width: 36px;
-  height: 24px;
-  padding: 4px;
-  border-radius: ${props => props.theme.borderRadius};
-  border: ${props =>
-    `${props.theme.borderWidth} solid  ${props.theme.borderColor};`};
+const StyledHexColorPicker = styled(HexColorPicker)`
+  margin-bottom: 10px;
 `;
 
-const Color = styled.div`
-  width: 100%;
-  height: 100%;
-  transition: background-color 0.2s ease;
-  background-color: ${props => props.color};
+const Control = styled.div`
+  padding: 0 10px;
+  :not(:last-child) {
+    margin-bottom: ${(props) =>
+      props.marginBottom ? props.marginBottom : "10px"};
+  }
 `;
 
 function Fill(props) {
@@ -31,9 +28,10 @@ function Fill(props) {
       {expanded && (
         <PanelBody>
           <Control>
-            <ColorWrapper>
-              <Color color={props.color} />
-            </ColorWrapper>
+            <StyledHexColorPicker
+              color={props.color}
+              onChange={props.setColor}
+            />
             <Input
               type="text"
               value={props.color}
@@ -48,7 +46,7 @@ function Fill(props) {
 
 Fill.propTypes = {
   color: PropTypes.string.isRequired,
-  setColor: PropTypes.func.isRequired
+  setColor: PropTypes.func.isRequired,
 };
 
 export default Fill;
