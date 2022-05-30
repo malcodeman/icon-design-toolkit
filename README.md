@@ -10,12 +10,11 @@ Interactive design tool.
 
 ## Getting started
 
-Clone and run:
-
 ```
 git clone https://github.com/malcodeman/framer.git
 cd framer
-yarn install && yarn start
+yarn install
+yarn start
 ```
 
 ## License
